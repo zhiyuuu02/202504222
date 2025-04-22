@@ -1,0 +1,74 @@
+/* 全域文字顏色 */
+    body {
+        color: #D2B48C; /* 卡其色 */
+    }
+
+    /* 標題文字顏色 */
+    header h1, .card-title {
+        color: #000000; /* 卡其色 */
+    }
+
+    /* 按鈕樣式 */
+    .btn-primary {
+        background-color: #D2B48C; /* 卡其色 */
+        border-color: #D2B48C; /* 卡其色 */
+        color: #fff; /* 白色文字 */
+    }
+
+
+        /* 按鈕樣式 */
+      .bg-primary {
+          background-color: #d4bd9f!important;
+      }
+    .btn-primary:hover {
+        background-color: #C0A080; /* 深一點的卡其色 */
+        border-color: #C0A080;
+    }
+
+    /* 卡片文字顏色 */
+    .card-text {
+        color: #D2B48C; /* 卡其色 */
+    }
+
+    /* 頁腳文字顏色 */
+    footer {
+        color: #D2B48C; /* 卡其色 */
+    }
+    /* 動畫容器樣式 */
+#animation-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* 不影響滑鼠事件 */
+    overflow: hidden;
+    z-index: 9999;
+}
+
+/* 動畫圖樣式 */
+.animated-circle {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(210, 180, 140, 0.8); /* 卡其色 */
+    border-radius: 50%;
+    animation: float 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* 動畫效果 */
+@keyframes float {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-50px) scale(1.2);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}

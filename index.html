@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap 範例模板</title>
+    <!-- 引入 Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <style>
+        /* 卡片進入動畫 */
+        .card {
+            opacity: 1;
+            transform: translateY(20px);
+            transition: all 0.5s ease-in-out;
+        }
+
+        .card:hover {
+            transform: scale(1.05); /* 放大效果 */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 增加陰影 */
+        }
+
+        /* 頁面滾動時觸發動畫 */
+        .card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 標題文字動畫 */
+        header h1 {
+            animation: fadeInDown 1s ease-in-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 煙火容器 */
+        .fireworks {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .firework {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: transparent;
+            border-radius: 50%;
+            animation: explode 1.5s ease-out forwards;
+        }
+
+        @keyframes explode {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(3);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-primary text-white text-center py-3">
+        <h1>412730995劉芷妤</h1>
+    </header>
+
+    <main class="container my-5" style="height: 700px;">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">首頁</h5>
+                        <p class="card-text">這是淡江大學的網站。</p>
+                        <!-- 按鈕觸發 Modal -->
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#webModal" data-url="https://www.tku.edu.tw/">查看更多</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">教育科技學系</h5>
+                        <p class="card-text">這是淡江大學教育科技學系的網站。</p>
+                        <!-- 按鈕觸發 Modal -->
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#webModal" data-url="https://www.et.tku.edu.tw/">查看更多</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">自我介紹</h5>
+                        <p class="card-text">這是我的自我介紹。</p>
+                        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#selfIntroModal">查看更多</a>
+                    </div>
+                </div>
+            </div>
+             <!-- 自我介紹的 Modal -->
+            <div class="modal fade" id="selfIntroModal" tabindex="-1" aria-labelledby="selfIntroModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="selfIntroModalLabel">自我介紹</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>我是劉芷妤，今年20歲，就讀淡江大學教育科技學系。</p>
+                            <h6>1. 過去一年我的改變</h6>
+                            <p>一整年的環島、獨自一人出國去緬甸、在課業的專業知識上也增加了許多。</p>
+                            <h6>2. 對未來有什麼目標?</h6>
+                            <p>持續把資工輔系完成、繼續往上攻讀碩博士。</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">教學影片</h5>
+                        <p class="card-text">這是教學影片的連結。</p>
+                        <a href="https://cfchen58.synology.me/%E4%BA%92%E5%8B%95%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/1132/week1/20250218_112359.mp4" class="btn btn-primary" target="_blank">觀看影片</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">測驗卷</h5>
+                        <p class="card-text">這是關於物理化學的測驗卷。</p>
+                        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#quizModal">開始測驗</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 測驗卷的 Modal -->
+            <div class="modal fade" id="quizModal" tabindex="-1" aria-labelledby="quizModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="quizModalLabel">物理化學測驗卷</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="quizForm">
+                                <ol>
+                                    <li>水的沸點在標準大氣壓下是多少攝氏度？</li>
+                                    <input type="text" class="form-control mb-3" placeholder="你的答案">
+            
+                                    <li>理想氣體方程式是什麼？</li>
+                                    <input type="text" class="form-control mb-3" placeholder="你的答案">
+            
+                                    <li>1摩爾的氣體在標準狀況下的體積是多少？</li>
+                                    <input type="text" class="form-control mb-3" placeholder="你的答案">
+            
+                                    <li>氧氣的化學式是什麼？</li>
+                                    <input type="text" class="form-control mb-3" placeholder="你的答案">
+            
+                                    <li>光速的數值是多少？（單位：m/s）</li>
+                                    <input type="text" class="form-control mb-3" placeholder="你的答案">
+            
+                                    <li>pH 值為 7 的溶液是酸性、中性還是鹼性？</li>
+                                    <input type="text" class="form-control mb-3" placeholder="你的答案">
+            
+                                    <li>元素週期表中，氦（He）的原子序數是多少？</li>
+                                    <input type="text" class="form-control mb-3" placeholder="你的答案">
+            
+                                    <li>牛頓第二運動定律的公式是什麼？</li>
+                                    <input type="text" class="form-control mb-3" placeholder="你的答案">
+            
+                                    <li>在化學反應中，催化劑的作用是什麼？</li>
+                                    <input type="text" class="form-control mb-3" placeholder="你的答案">
+            
+                                    <li>電解水時，產生的氣體有哪些？</li>
+                                    <input type="text" class="form-control mb-3" placeholder="你的答案">
+                                </ol>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+                            <button type="button" class="btn btn-primary" onclick="submitQuiz()">提交答案</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">作品集</h5>
+                        <p class="card-text">這是我的作品集。</p>
+                        <a href="https://zhiyuuu02.github.io/2025-02-25/" class="btn btn-primary d-block mb-2">作品1</a>
+                        <a href="https://zhiyuuu02.github.io/0408/" class="btn btn-primary d-block mb-2">作品2</a>
+                        <a href="https://zhiyuuu02.github.io/0304/" class="btn btn-primary d-block">作品3</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 通用 Modal -->
+    <div class="modal fade" id="webModal" tabindex="-1" aria-labelledby="webModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="webModalLabel">網頁內容</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <iframe id="webModalIframe" src="" style="width: 100%; height: 600px; border: none;"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2025 我的網站. 保留所有權利。</p>
+    </footer>
+    <div class="fireworks"></div>
+    <!-- 引入 Bootstrap JS 和 Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 滾動時觸發卡片動畫
+        document.addEventListener("scroll", function () {
+            const cards = document.querySelectorAll(".card");
+            const triggerBottom = window.innerHeight * 0.8;
+
+            cards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+
+                if (cardTop < triggerBottom) {
+                    card.classList.add("show");
+                }
+            });
+        });
+
+        // 動態載入 Modal 的內容
+        const webModal = document.getElementById('webModal');
+        webModal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget; // 觸發 Modal 的按鈕
+            const url = button.getAttribute('data-url'); // 取得按鈕的 data-url 屬性
+            const iframe = document.getElementById('webModalIframe');
+            iframe.src = url; // 將 iframe 的 src 設為按鈕的 URL
+        });
+
+        // 清除 iframe 的內容以避免記憶體洩漏
+        webModal.addEventListener('hidden.bs.modal', function () {
+            const iframe = document.getElementById('webModalIframe');
+            iframe.src = '';
+        });
+
+
+
+        const fireworksContainer = document.querySelector('.fireworks');
+
+        function createFirework(x, y) {
+            const firework = document.createElement('div');
+            firework.classList.add('firework');
+            firework.style.left = `${x}px`;
+            firework.style.top = `${y}px`;
+            firework.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            fireworksContainer.appendChild(firework);
+
+            setTimeout(() => {
+                firework.remove();
+            }, 1500); // 煙火動畫結束後移除
+        }
+
+        document.addEventListener('click', (e) => {
+            createFirework(e.clientX, e.clientY);
+        });
+
+        // 自動生成煙火
+        setInterval(() => {
+            const x = Math.random() * window.innerWidth;
+            const y = Math.random() * window.innerHeight;
+            createFirework(x, y);
+        }, 100);
+    </script>
+</body>
+</html>
